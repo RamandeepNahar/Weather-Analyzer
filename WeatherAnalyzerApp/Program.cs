@@ -53,3 +53,19 @@ static double GetAverage(int[] temps)
 
     return avg;
 }
+
+
+static int CountHotDays(int[] temps)
+{
+    int count = 0;
+
+    foreach (int t in temps)
+    {
+        if (t > 30)
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
