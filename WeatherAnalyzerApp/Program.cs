@@ -7,6 +7,7 @@
 
 int[] temps = { 22, 28, 31, 35, 27 };
 
+
 static int GetMax(int[] temps)
 {
     int maxTemp = temps[0];
@@ -22,3 +23,18 @@ static int GetMax(int[] temps)
     return maxTemp;
 }
 
+
+static int GetMin(int[] temps)
+{
+    int minTemp = temps[0];
+
+    foreach (int t in temps)
+    {
+        if (t < minTemp)
+        {
+            minTemp = t;
+        }
+    }
+
+    return minTemp;
+}
