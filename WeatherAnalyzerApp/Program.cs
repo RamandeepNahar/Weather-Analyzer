@@ -4,11 +4,19 @@
 // It finds the maximum, minimum, average temperature,
 // and counts how many days are considered hot.
 
-
-int[] temps = { 22, 28, 31, 35, 27 };
-
-
 Console.WriteLine("Weather Analyzer");
+Console.WriteLine("Enter how many days: ");
+int days = int.Parse(Console.ReadLine());
+int[] temps = new int[days];
+
+
+for (int i = 0; i < temps.Length; i++)
+{
+
+    Console.WriteLine($"Enter temperature for day {i + 1}");
+    temps[i] = int.Parse(Console.ReadLine());
+}
+
 Console.WriteLine($"Max: {GetMax(temps)}");
 Console.WriteLine($"Min: {GetMin(temps)}");
 Console.WriteLine($"Average: {GetAverage(temps)}");
