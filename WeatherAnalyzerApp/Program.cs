@@ -8,6 +8,13 @@
 int[] temps = { 22, 28, 31, 35, 27 };
 
 
+Console.WriteLine("Weather Analyzer");
+Console.WriteLine($"Max: {GetMax(temps)}");
+Console.WriteLine($"Min: {GetMin(temps)}");
+Console.WriteLine($"Average: {GetAverage(temps)}");
+Console.WriteLine($"Hot Days (>30): {CountHotDays(temps)}");
+
+
 static int GetMax(int[] temps)
 {
     int maxTemp = temps[0];
