@@ -38,3 +38,18 @@ static int GetMin(int[] temps)
 
     return minTemp;
 }
+
+
+static double GetAverage(int[] temps)
+{
+    double sum = 0;
+
+    foreach (int t in temps)
+    {
+        sum += t;
+    }
+
+    double avg = sum / temps.Length;
+
+    return avg;
+}
