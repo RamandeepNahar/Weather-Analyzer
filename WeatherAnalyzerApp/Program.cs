@@ -4,7 +4,7 @@
 // It finds the maximum, minimum, average temperature,
 // and counts how many days are considered hot.
 
-using System.Runtime.Serialization.Formatters;
+using System.Security.Principal;
 
 Console.WriteLine("Weather Analyzer");
 Console.WriteLine("Enter how many days: ");
@@ -15,10 +15,14 @@ int[] temps = new int[days];
 
 for (int i = 0; i < temps.Length; i++)
 {
-
     Console.Write($"Enter temperature for day {i + 1}: ");
     temps[i] = int.Parse(Console.ReadLine());
+}
 
+for (int i = 0; i < temps.Length; i++)
+{
+    double f = ConvertToFahrenheit(temps[i]);
+    Console.WriteLine($"Day {i + 1}: {f} degrees F");
 }
 
 Console.WriteLine($"Max: {GetMax(temps)}");
@@ -105,3 +109,13 @@ static int CountColdDays(int[] temps)
 
     return count;
 }
+
+
+static double ConvertToFahrenheit(int temp)
+{
+    double fahrenheit = (temp * 9.0 / 5) + 32;
+    return (int)fahrenheit;
+}
+
+
+
