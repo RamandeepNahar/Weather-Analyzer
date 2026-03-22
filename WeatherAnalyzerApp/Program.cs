@@ -4,23 +4,28 @@
 // It finds the maximum, minimum, average temperature,
 // and counts how many days are considered hot.
 
+using System.Runtime.Serialization.Formatters;
+
 Console.WriteLine("Weather Analyzer");
 Console.WriteLine("Enter how many days: ");
 int days = int.Parse(Console.ReadLine());
+Console.WriteLine("-------------");
 int[] temps = new int[days];
 
 
 for (int i = 0; i < temps.Length; i++)
 {
 
-    Console.WriteLine($"Enter temperature for day {i + 1}");
+    Console.Write($"Enter temperature for day {i + 1}: ");
     temps[i] = int.Parse(Console.ReadLine());
+
 }
 
 Console.WriteLine($"Max: {GetMax(temps)}");
 Console.WriteLine($"Min: {GetMin(temps)}");
 Console.WriteLine($"Average: {GetAverage(temps)}");
-Console.WriteLine($"Hot Days (>30): {CountHotDays(temps)}");
+Console.WriteLine($"Hot Days (> 30): {CountHotDays(temps)}");
+Console.WriteLine($"Cold Days (< 10): {CountColdDays(temps)}");
 
 
 static int GetMax(int[] temps)
@@ -77,6 +82,22 @@ static int CountHotDays(int[] temps)
     foreach (int t in temps)
     {
         if (t > 30)
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
+static int CountColdDays(int[] temps)
+{
+    int count = 0;
+    
+    foreach (int t in temps)
+    {
+        if (t < 10)
         {
             count++;
         }
