@@ -5,8 +5,15 @@
 // and counts how many days are considered hot.
 
 
+
+
+// Creating a new WeatherDay object called day1
+// Passing in 25 which goes into the constructor as temp
+// Then gets stored in the temperature field
 WeatherDay day1 = new WeatherDay(25);
-Console.WriteLine(day1.temperature);
+
+// Accessing day1 object through the property Temperature
+Console.WriteLine(day1.Temperature);
 
 
 Console.WriteLine("Weather Analyzer");
