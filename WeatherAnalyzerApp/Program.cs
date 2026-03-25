@@ -4,7 +4,10 @@
 // It finds the maximum, minimum, average temperature,
 // and counts how many days are considered hot.
 
-using System.Security.Principal;
+
+WeatherDay day1 = new WeatherDay(25);
+Console.WriteLine(day1.temperature);
+
 
 Console.WriteLine("Weather Analyzer");
 Console.WriteLine("Enter how many days: ");
