@@ -1,31 +1,57 @@
 
 
 // WeatherDay Class - this the blueprint for a weather day object
-using System.Dynamic;
-using System.Reflection.Metadata.Ecma335;
-
 class WeatherDay
 {
 
-    // Member variable - private field that stores the temperature
-    // Private means only code inside this class can access it directly.
+    // Private field - stores the temperature in Celsius
+    // Only accessible inside this class directly
     private int temperature;
 
 
     // Property Temperature - controls access to the private temperature field
     public int Temperature 
     { 
-        get { return temperature; } // returns the temperature field
-        set { temperature = value; } // assigns the temperature field to the given value
+        get 
+        { 
+            // Returns the Celsius temperature
+            return temperature;
+        }
+
+        set 
+        { 
+            // Validates the value before assigning - rejects unrealistic temperatures
+            if (value < -90 || value > 60)
+            {
+                Console.WriteLine("Not Possible temperatures!");
+            }
+            else
+            {
+                // Assigns the valid value to the private temperature field
+                temperature = value; 
+            }
+
+        } 
+    }
+
+    // Property Fahrenheit - converts and returns temperature in Fahrenheit
+    // No set needed - calculated from temperature field
+    public int Fahrenheit
+    {
+        get
+        {
+            int F = (temperature * 9 / 5) + 32;
+            return F;
+        }
+
     }
 
 
-
     // Constructor - runs automatically when a new WeatherDay object is created
-    // Takes a temp parameter and assigns it to the temperature field
+    // Goes through Temperature property to trigger validation on set
     public WeatherDay(int temp)
     {
-        temperature = temp;
+       Temperature = temp;
     }
 }
 
